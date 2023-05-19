@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   name: bvkme-config
 data:
-  GITSYNC_REPO: https://github.com/bvankampen/bvkme-website.git
-  GITSYNC_LINK: git-sync
+  GIT_SYNC_REPO: https://github.com/bvankampen/bvkme-website.git
+  GIT_SYNC_LINK: git-sync
+  GIT_SYNC_BRANCH: main
+
 
