@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: bvkme-virtual-service
+  name: virtual-service
 spec:
   hosts:
   - "bvkme.lan.ping6.nl"
@@ -14,5 +14,5 @@ spec:
     route:
     - destination:
         port:
-          number: 8000
-        host: bvkme-service
+          number: 8080
+        host: website-service
