@@ -1,0 +1,7 @@
+colors
+
+#88BDBC green
+#254E58 blue-green
+#112D32 dark-blue-green
+#4F4A41 dark-slate-gray
+#6E6658 slate-gray
