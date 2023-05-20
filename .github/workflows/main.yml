@@ -4,11 +4,11 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - "app/**"
+      - "website/**"
   pull_request:
     branches: [ "main" ]
     paths:
-      - "app/**"
+      - "website/**"
 
   workflow_dispatch:
 
