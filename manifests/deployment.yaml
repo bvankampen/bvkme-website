@@ -21,65 +21,13 @@ spec:
         seccompProfile:
           type: RuntimeDefault
       containers:
-      - name: git-sync
-        image: registry.k8s.io/git-sync/git-sync:v3.6.6
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        envFrom:
-          - configMapRef:
-              name: config
-        volumeMounts:
-        - name: docusaurus
-          mountPath: /tmp/git
-      - name: docusaurus
-        image: node:18.16.0
+      - name: website
+        image: harbor.lan.ping6.nl/library/bvkme/website:latest
         resources:
           requests:
             memory: "64Mi"
             cpu: "250m"
           limits:
             memory: "1024Mi"
-            cpu: "500m"
-        envFrom:
-          - configMapRef:
-              name: config
-        volumeMounts:
-        - name: docusaurus
-          mountPath: /tmp/src         
-        - name: html
-          mountPath: /tmp/html         
-        command:
-          - /bin/sh
-          - -c
-          - |
-            cd /tmp/src/bvkme-website.git/website
-            npm install
-            npm run build
-            cd build
-            cp -r . /tmp/html
-            sleep infinity
-      - name: nginx
-        image: nginxinc/nginx-unprivileged
-        resources:
-          requests:
-            memory: "64Mi"
-            cpu: "250m"
-          limits:
-            memory: "1024Mi"
-            cpu: "500m"
-        envFrom:
-          - configMapRef:
-              name: config
-        volumeMounts:
-        - name: html
-          mountPath: /usr/share/nginx/html           
-      volumes:
-        - name: docusaurus
-          emptyDir: {}
-        - name: html
-          emptyDir: {}
+            cpu: "1000m"
+        

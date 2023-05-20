@@ -1,0 +1,51 @@
+name: Build Container Image
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "app/**"
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - "app/**"
+
+  workflow_dispatch:
+
+env:
+  REGISTRY: harbor.lan.ping6.nl
+  PROJECT: library
+  FOLDER: bvkme
+  NAME: website
+  TAG: latest
+
+jobs:
+  build:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build Images
+        run: |
+          cd $GITHUB_WORKSPACE
+          yarn --no-progress --cwd website install
+          yarn --no-progress --cwd website build
+          docker build -t $REGISTRY/$PROJECT/$FOLDER/$NAME:$TAG .
+  push:
+    needs: build
+    runs-on: self-hosted
+    steps:
+      - name: Push images to registry
+        run: |
+          docker push $REGISTRY/$PROJECT/$FOLDER/$NAME:$TAG
+  restart_website:
+    needs: push
+    runs-on: self-hosted
+    steps:
+      - name: Restart Deployment Website
+        run: |
+          kubectl -n bvkme rollout restart deployment website
+
+
+
