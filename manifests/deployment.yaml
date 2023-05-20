@@ -21,7 +21,7 @@ spec:
               - key: app
                 operator: In
                 values:
-                - store
+                - website
             topologyKey: "kubernetes.io/hostname"
       securityContext:
         fsGroup: 1000
