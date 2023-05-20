@@ -6,23 +6,13 @@ spec:
   selector:
     matchLabels:
       app: website
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
         app: website
         version: "v1.0"
-    spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - website
-            topologyKey: "kubernetes.io/hostname"
+    spec:     
       securityContext:
         fsGroup: 1000
         runAsUser: 1000
