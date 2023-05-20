@@ -1,0 +1,13 @@
+Canonical: https://bvk.me/.well-known/security.txt
+Canonical: https://www.bvk.me/.well-known/security.txt
+Canonical: https://ping6.nl/.well-known/security.txt
+Canonical: https://www.ping6.nl/.well-known/security.txt
+
+Expires: 2023-10-01T00:00:00+00:00
+
+Policy: https://bvk.me
+
+Contact: mailto:bas@ping6.nl
+Encryption: https://bvk.me/todo
+
+Preferred-Languages: nl, en
