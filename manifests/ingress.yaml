@@ -17,3 +17,8 @@ spec:
                 name: website-service
                 port:
                   number: 8080
+  tls:
+  - hosts:
+      - bvkme.lan.ping6.nl
+    secretName:
+      website-tls
