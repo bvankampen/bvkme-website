@@ -1,0 +1,13 @@
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: website-tls
+  namespace: bvkme
+spec:
+  dnsNames:
+    - "bvkme.lan.ping6.nl"
+  secretName: website-tls
+  issuerRef:
+    name: letsencrypt-cloudflare-issuer
+    kind: ClusterIssuer
