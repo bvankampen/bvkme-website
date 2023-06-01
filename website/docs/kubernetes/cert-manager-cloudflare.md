@@ -2,8 +2,6 @@
 title: "Cert Manager Cloudflare"
 date: 2023-05-16T19:23:01+02:00
 draft: false
-categories: 
-  - kubernetes
 tags:
   - kubernetes
   - TLS

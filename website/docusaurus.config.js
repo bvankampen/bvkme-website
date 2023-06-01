@@ -85,6 +85,7 @@ const config = {
               {
                 label: 'Mastodon',
                 href: 'https://infosec.exchange/@basvk',
+                rel: 'me',
               },
               {
                 label: 'Github',
