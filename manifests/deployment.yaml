@@ -30,4 +30,15 @@ spec:
           limits:
             memory: "1024Mi"
             cpu: "1000m"
-        
+        volumeMounts:
+          - mountPath: /etc/nginx
+            name: nginx-conf
+            readOnly: true
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: nginx-conf
+            items:
+              - key: nginx.conf
+                path: nginx.conf
+          
