@@ -31,12 +31,14 @@ spec:
             memory: "1024Mi"
             cpu: "1000m"
         volumeMounts:
-          - mountPath: /etc/nginx/nginx.conf
+          - mountPath: /etc/nginx/conf.d
             name: nginx-conf
             readOnly: true
       volumes:
         - name: nginx-conf
           configMap:
             name: nginx-conf
-
+            items:
+              - key: default.conf
+                path: default.conf
           
