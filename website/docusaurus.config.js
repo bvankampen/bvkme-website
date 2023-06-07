@@ -32,6 +32,14 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    [
+      "@gracefullight/docusaurus-plugin-cloudflare-analytics",
+      { token: "a3a6203b4fdf403a99c0ff39819074f9" },
+    ],
+  ],
+
+  
   presets: [
     [
       'classic',
