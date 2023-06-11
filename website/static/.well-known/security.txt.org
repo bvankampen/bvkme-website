@@ -1,6 +1,3 @@
------BEGIN PGP SIGNED MESSAGE-----
-Hash: SHA512
-
 Canonical: https://bvk.me/.well-known/security.txt
 Canonical: https://www.bvk.me/.well-known/security.txt
 Canonical: https://ping6.nl/.well-known/security.txt
@@ -14,10 +11,3 @@ Contact: mailto:bas@ping6.nl
 Encryption: https://bvk.me/todo
 
 Preferred-Languages: nl, en
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQRzOI0ZrB30l19bnK/D8L67nw7B5wUCZIXLvQAKCRDD8L67nw7B
-50i3AQChcCwhlCsfhFImguYW/CcLI58MyMlyYZi46hZ6NW+BSwD+KJVgHtj2PlEz
-DO3kLB8kq8BK5/LYwkBtEgibTt2+TAs=
-=HY1I
------END PGP SIGNATURE-----
