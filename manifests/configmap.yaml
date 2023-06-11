@@ -15,7 +15,7 @@ data:
             index  index.html index.htm;
         }
 
-        add_header Content-Security-Policy "default-src 'self'; frame-ancestors 'self'; form-action 'self';";
+        add_header Content-Security-Policy "default-src 'self'; frame-ancestors 'self'; form-action 'self';script-src static.cloudflareinsights.com; connect-src cloudflareinsights.com";
 
         # redirect server error pages to the static page /50x.html
         #
