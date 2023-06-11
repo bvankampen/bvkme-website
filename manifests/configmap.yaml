@@ -15,7 +15,7 @@ data:
             index  index.html index.htm;
         }
 
-        add_header Content-Security-Policy "default-src 'self'; frame-ancestors 'self'; form-action 'self';script-src 'self' 'static.cloudflareinsights.com'; connect-src 'self' 'cloudflareinsights.com'";
+        add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'static.cloudflareinsights.com'; script-src-elem 'self' 'unsafe-inline'; script-src-attr 'self' 'unsafe-inline'; connect-src 'self' 'cloudflareinsights.com'; frame-ancestors 'self'; form-action 'self'";
 
         # redirect server error pages to the static page /50x.html
         #
