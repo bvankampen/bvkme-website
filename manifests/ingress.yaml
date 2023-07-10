@@ -27,27 +27,27 @@ spec:
                 name: website-service
                 port:
                   number: 8080                  
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: website-ingress-https
-  namespace: bvkme
-spec:
-  ingressClassName: nginx
-  rules:
-  - host: bvkme.lan.ping6.nl
-    http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: website-service
-                port:
-                  number: 8080
-  tls:
-  - hosts:
-      - bvkme.lan.ping6.nl
-    secretName:
-      website-tls
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: website-ingress-https
+#   namespace: bvkme
+# spec:
+#   ingressClassName: nginx
+#   rules:
+#   - host: bvkme.lan.ping6.nl
+#     http:
+#         paths:
+#           - path: /
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: website-service
+#                 port:
+#                   number: 8080
+#   tls:
+#   - hosts:
+#       - bvkme.lan.ping6.nl
+#     secretName:
+#       website-tls
