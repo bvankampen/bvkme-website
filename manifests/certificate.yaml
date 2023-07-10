@@ -9,6 +9,8 @@ spec:
     - "bvkme.lan.ping6.nl"
     - "www.bvk.me"
     - "bvk.me"
+    - "www.ping6.nl"
+    - "ping6.nl"
   secretName: website-tls
   issuerRef:
     name: letsencrypt-cloudflare-issuer
