@@ -46,7 +46,7 @@ spec:
                 name: website-service
                 port:
                   number: 8080
-  - host: bvkme.me
+  - host: bvk.me
     http:
         paths:
           - path: /
@@ -56,7 +56,7 @@ spec:
                 name: website-service
                 port:
                   number: 8080             
-  - host: www.bvkme.me
+  - host: www.bvk.me
     http:
         paths:
           - path: /
@@ -65,9 +65,33 @@ spec:
               service:
                 name: website-service
                 port:
-                  number: 8080                                
+                  number: 8080       
+  - host: www.ping6.nl
+    http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: website-service
+                port:
+                  number: 8080         
+  - host: ping6.nl
+    http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: website-service
+                port:
+                  number: 8080                                                                      
   tls:
   - hosts:
       - bvkme.lan.ping6.nl
+      - bvk.me
+      - www.bvk.me
+      - ping6.nl
+      - www.ping6.nl
     secretName:
       website-tls
