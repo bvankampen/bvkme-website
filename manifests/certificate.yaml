@@ -7,6 +7,8 @@ metadata:
 spec:
   dnsNames:
     - "bvkme.lan.ping6.nl"
+    - "www.bvk.me"
+    - "bvk.me"
   secretName: website-tls
   issuerRef:
     name: letsencrypt-cloudflare-issuer
