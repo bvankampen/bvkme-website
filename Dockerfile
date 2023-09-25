@@ -4,3 +4,5 @@ COPY ./website/build/ /usr/share/nginx/html
 
 RUN chown -R 1000:1000 /var/log/nginx
 RUN chown -R 1000:1000 /var/lib/nginx
+
+RUN touch /run/nginx.pid && chown -R 1000:1000 /run/nginx.pid
