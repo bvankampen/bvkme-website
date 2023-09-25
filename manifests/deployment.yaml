@@ -34,6 +34,11 @@ spec:
           - mountPath: /etc/nginx/conf.d
             name: nginx-conf
             readOnly: true
+        securityContext:    
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+              - ALL
       volumes:
         - name: nginx-conf
           configMap:

@@ -26,21 +26,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Build Images
+      - name: Build and Push Images
         run: |
           cd $GITHUB_WORKSPACE
           yarn --no-progress --cwd website install
           yarn --no-progress --cwd website build
-          docker build -t $REGISTRY/$PROJECT/$FOLDER/$NAME:$TAG .
-  push:
-    needs: build
-    runs-on: self-hosted
-    steps:
-      - name: Push images to registry
-        run: |
-          docker push $REGISTRY/$PROJECT/$FOLDER/$NAME:$TAG
+          docker build --push --platform linux/arm64,linux/amd64 --tag $REGISTRY/$PROJECT/$FOLDER/$NAME:$TAG .
   restart_website:
-    needs: push
+    needs: build
     runs-on: self-hosted
     steps:
       - name: Restart Deployment Website

@@ -7,6 +7,7 @@ metadata:
 spec:
   dnsNames:
     - "bvkme.lan.ping6.nl"
+    - "bvkme.p6lab.net"
     - "www.bvk.me"
     - "bvk.me"
     - "www.ping6.nl"
