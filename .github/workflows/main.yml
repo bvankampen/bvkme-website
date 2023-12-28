@@ -38,7 +38,7 @@ jobs:
     steps:
       - name: Restart Deployment Website
         run: |
-          kubectl -n bvkme rollout restart deployment website
+          kubectl --kubeconfig ~/.kube/pi-cluster.yaml -n bvkme rollout restart deployment website
 
 
 
