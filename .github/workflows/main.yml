@@ -31,7 +31,7 @@ jobs:
           cd $GITHUB_WORKSPACE
           yarn --no-progress --cwd website install
           yarn --no-progress --cwd website build
-          docker buildx build --push --platform linux/arm64,linux/amd64 --tag $REGISTRY/$PROJECT/$FOLDER/$NAME:$TAG Dockerfile-website
+          docker buildx build --push --platform linux/arm64,linux/amd64 --tag $REGISTRY/$PROJECT/$FOLDER/$NAME:$TAG -f Dockerfile-website .
   restart_website:
     needs: build
     runs-on: self-hosted
