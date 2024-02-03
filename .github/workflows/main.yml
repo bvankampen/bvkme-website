@@ -5,10 +5,12 @@ on:
     branches: [ "main" ]
     paths:
       - "website/**"
+      - "proxy/**"
   pull_request:
     branches: [ "main" ]
     paths:
       - "website/**"
+      - "proxy/**"
 
   workflow_dispatch:
 
