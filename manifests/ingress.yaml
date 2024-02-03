@@ -15,6 +15,16 @@ spec:
                 name: website-service
                 port:
                   number: 8080
+  - host: bvkme.lan.ping6.nl
+    http:
+        paths:
+          - path: /proxy
+            pathType: Prefix
+            backend:
+              service:
+                name: proxy-service
+                port:
+                  number: 5000                  
   - host: bvkme.p6lab.net
     http:
         paths:
@@ -35,6 +45,16 @@ spec:
                 name: website-service
                 port:
                   number: 8080             
+  - host: bvk.me
+    http:
+        paths:
+          - path: /proxy
+            pathType: Prefix
+            backend:
+              service:
+                name: proxy-service
+                port:
+                  number: 5000                        
   - host: www.bvk.me
     http:
         paths:

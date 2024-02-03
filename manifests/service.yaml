@@ -11,3 +11,17 @@ spec:
     name: http-website
   selector:
     app: website
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: proxy-service
+  labels:
+    app: proxy
+spec:
+  type: ClusterIP
+  ports:
+  - port: 5000
+    name: http-proxy
+  selector:
+    app: proxy

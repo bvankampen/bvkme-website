@@ -46,4 +46,32 @@ spec:
             items:
               - key: default.conf
                 path: default.conf
-          
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: proxy
+spec:
+  selector:
+    matchLabels:
+      app: proxy
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: proxy
+    spec:
+      containers:
+      - name: proxy
+        image: harbor.lan.ping6.nl/library/bvkme/proxy:latest
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "1000m"
+        ports:
+          - containerPort: 5000
+      terminationGracePeriodSeconds: 0
+

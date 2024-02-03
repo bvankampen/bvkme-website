@@ -16,24 +16,31 @@ env:
   REGISTRY: harbor.lan.ping6.nl
   PROJECT: library
   FOLDER: bvkme
-  NAME: website
   TAG: latest
 
 jobs:
-  build:
+  build_website:
     runs-on: self-hosted
-
     steps:
       - uses: actions/checkout@v3
-
-      - name: Build and Push Images
+      - name: Build and Push Images for website
         run: |
           cd $GITHUB_WORKSPACE/website
           yarn --no-progress --cwd content install
           yarn --no-progress --cwd content build
-          docker buildx build --push --platform linux/arm64,linux/amd64 --tag $REGISTRY/$PROJECT/$FOLDER/$NAME:$TAG .
+          docker buildx build --push --platform linux/arm64,linux/amd64 --tag $REGISTRY/$PROJECT/$FOLDER/website:$TAG .
+  build_proxy:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build and Push Images for proxy
+        run: |
+          cd $GITHUB_WORKSPACE/proxy
+          docker buildx build --push --platform linux/arm64,linux/amd64 --tag $REGISTRY/$PROJECT/$FOLDER/proxy:$TAG .          
   restart_website:
-    needs: build
+    needs: 
+      - build_website
+      - build_proxy
     runs-on: self-hosted
     steps:
       - name: Restart Deployment Website
